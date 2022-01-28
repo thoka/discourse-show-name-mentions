@@ -1,0 +1,5 @@
+show_fullname_in_mentions:
+  default: true
+  description:
+    en: "If enabled @mentions will show the @fullname instead of the @username"
+    pt_BR: "Se ativado @mencoes irá exibir @nomecompleto ao invés de @usuario"

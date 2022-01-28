@@ -1,0 +1,3 @@
+en:
+  theme_metadata:
+    description: "A theme component to display the full name instead of usernames in @mentions"

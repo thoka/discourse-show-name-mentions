@@ -1,0 +1,8 @@
+.discourse-site
+/discourse/
+/discourse-common/
+node_modules
+
+HELP
+
+.idea
