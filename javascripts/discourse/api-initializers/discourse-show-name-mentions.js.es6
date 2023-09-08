@@ -9,7 +9,7 @@ const cachedNames = {};
 function updateMention(aMention, username, name) {
   if (name) {
     aMention.dataset.username = username;
-    aMention.innerText = `@${name}`;
+    aMention.innerText = `→${name} (@${username})`;
     aMention.classList.add("mention-fullname");
   }
 }
