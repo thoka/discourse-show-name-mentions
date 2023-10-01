@@ -3,3 +3,13 @@ show_fullname_in_mentions:
   description:
     en: "If enabled @mentions will show the @fullname instead of the @username"
     pt_BR: "Se ativado @mencoes irá exibir @nomecompleto ao invés de @usuario"
+    de: "Wenn aktiviert, werden @Erwähnungen den vollen Namen statt des Usernamen anzeigen"
+
+render_mentions_template:
+  default: "{fullname}"
+  description:
+    en: "Define the format to render mentions. You can use {username} and {fullname} as placeholders"
+    de: "Definiert das Format für die Darstellung von Erwähnungen. Du kannst {username} und {fullname} als Platzhalter verwenden"
+
+
+  

@@ -2,14 +2,11 @@ import { bind } from "discourse-common/utils/decorators";
 import { ajax } from "discourse/lib/ajax";
 import { apiInitializer } from "discourse/lib/api";
 
-// names are cached because of the composer.
-// without this, the ajax calls would be made everytime the user updated the text
-const cachedNames = {};
-
 function updateMention(aMention, username, name) {
   if (name) {
     aMention.dataset.username = username;
-    aMention.innerText = `${name} (${username})`;
+    let template = settings.render_mentions_template  || "{fullname}";
+    aMention.innerText = template.replace('{fullname}',name).replace('{username}',username.slice(1));
     aMention.classList.add("mention-fullname");
   }
 }
@@ -34,28 +31,6 @@ export default apiInitializer("0.8", (api) => {
           return;
         }
 
-        const cachedName = cachedNames[username];
-        if (cachedName) {
-          updateMention(aMention, username, cachedName);
-          return;
-        }
-
-        const userHref = aMention.attributes.href.value;
-        // console.log({username, cached: cachedNames[username]})
-
-        // fetch the user data to get the name
-        ajax(userHref).then(
-          (data) => {
-            const name = data.user.name;
-            cachedNames[username] = name;
-
-            updateMention(aMention, username, name);
-          },
-          () => {
-            // in case of error in the request we will just use the username for this user
-            cachedNames[username] = null;
-          }
-        );
       });
     },
     {
