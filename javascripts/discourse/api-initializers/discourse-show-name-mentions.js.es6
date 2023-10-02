@@ -16,7 +16,7 @@ export default apiInitializer("0.8", (api) => {
 
   api.decorateCookedElement(
     (element) => {
-      const mentions = element.querySelectorAll("a.mention");
+      const mentions = element.querySelectorAll("a.mention,a.mention-group");
 
       mentions.forEach((aMention) => {
         if (aMention.dataset.username) {
